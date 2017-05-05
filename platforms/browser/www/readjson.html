@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var url = "http://127.0.0.1/peka-web/peka-app/json.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var tgl_pengamatan = field.tgl_pengamatan;
+                var lokasi_temuan = field.lokasi_temuan;
+                var status_temuan = field.status_temuan;
+                $("#listview").append("<a class='item' href='form.html?id=" + id + "'><span class='item-note'><h2># " + id + "</h2></span>" + tgl_pengamatan + "<p>" + lokasi_temuan + " / " + status_temuan +"</p></a>");
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;background-color: red">
+        <a href="index.html" class="button button-clear">Home</a>
+        <h1 class="title">Read Database (JSON)</h1>
+    </div>
+    <br/>
+    <br/>
+    <ul class="list" id="listview">
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.yusfreak.peka"
+        }
+    }
+}

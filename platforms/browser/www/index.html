@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>PEKA Input - Pertamina EP</title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#insert").click(function() {
+            var title = $("#title").val();
+            var duration = $("#duration").val();
+            var price = $("#price").val();
+            var dataString = "title=" + title + "&duration=" + duration + "&price=" + price + "&insert=";
+            if ($.trim(title).length > 0 & $.trim(duration).length > 0 & $.trim(price).length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/phonegap-app/php/insert.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function() {
+                        $("#insert").val('Connecting...');
+                    },
+                    success: function(data) {
+                        if (data == "success") {
+                            alert("inserted");
+                            $("#insert").val('submit');
+                        } else if (data == "error") {
+                            alert("error");
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+
+        var url = "http://127.0.0.1/peka-web/peka-app/json_lokasi_temuan.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var name = field.name;
+                $("#lokasi_temuan").append("<option>" + name +"</option>");
+            });
+        });
+
+        var url = "http://127.0.0.1/peka-web/peka-app/json_klasi_lokasi.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var name = field.name;
+                $("#klasi_lokasi").append("<option>" + name +"</option>");
+            });
+        });
+
+        var url = "http://127.0.0.1/peka-web/peka-app/json_klasi_temuan.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var name = field.name;
+                $("#klasi_temuan").append("<option>" + name +"</option>");
+            });
+        });
+
+        var url = "http://127.0.0.1/peka-web/peka-app/json_resiko.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var name = field.name;
+                $("#resiko").append("<option>" + name +"</option>");
+            });
+        });
+
+        var url = "http://127.0.0.1/peka-web/peka-app/json_status_temuan.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var name = field.name;
+                $("#status_temuan").append("<option>" + name +"</option>");
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;background-color: green">
+        <h1 class="title">PEKA Input</h1>
+        <a class="button button-clear" href="readjson.html">Read Data</a>
+    </div>
+    <br/>
+    <br/>
+    <div class="list">
+        <div class="item">
+            <label>Pelapor</label>
+            <input type="text" id="pelapor" value="" />
+        </div>
+        <div class="item">
+            <label>Jabatan</label>
+            <input type="text" id="jabatan" value="" />
+        </div>
+        <div class="item">
+            <label>Lokasi Temuan</label>
+            <select class="item" id="lokasi_temuan" style="width:100%;"></select>
+        </div>
+        <div class="item">
+            <label>Klasifikasi Lokasi</label>
+            <select class="item" id="klasi_lokasi" style="width:100%;"></select>
+        </div>
+        <div class="item">
+            <label>Klasifikasi Lokasi Lain</label>
+            <input type="text" id="klasi_lokasi_lain" value="" />
+            <small style="color:red;">Isi jika klasifikasi lokasi = lain-lain, jika bukan isi dengan angka 0</small>
+        </div>
+        <div class="item">
+            <label>Tempat</label>
+            <input type="text" id="tempat" value="" />
+        </div>
+        <div class="item">
+            <label>Klasifikasi Temuan</label>
+            <select class="item" id="klasi_temuan" style="width:100%;"></select>
+        </div>
+        <div class="item">
+            <label>Pengamatan</label>
+            <textarea class="item" id="pengamatan"></textarea>
+        </div>
+        <div class="item">
+            <label>Rekomendasi</label>
+            <textarea class="item" id="rekomendasi"></textarea>
+        </div>
+        <div class="item">
+            <label>Resiko</label>
+            <select class="item" id="resiko" style="width:100%;"></select>
+        </div>
+        <div class="item">
+            <label>Status Temuan</label>
+            <select class="item" id="status_temuan" style="width:100%;"></select>
+        </div>
+        <div class="item">
+            <label>Bukti Foto</label>
+            <input class="item" type="file" id="bukti_foto" value="" />
+        </div>
+        <div class="item">
+            <input type="button" id="insert" class="button button-block" value="Insert" />
+            <a href="index.html" class="button button-block">Batal</a>
+        </div>
+    </div>
+</body>
+</html>
